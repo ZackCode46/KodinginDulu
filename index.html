@@ -9,9 +9,24 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="wrap">
+<section id="intro" aria-label="Pengantar">
+<div class="aur a1"></div><div class="aur a2"></div><div class="gr"></div>
+<div class="ih">
+ <div class="itxt">
+  <span class="tg">Praktikum MCS · Dart · Flutter · Go</span>
+  <h1>Belajar coding lewat <em>soal cerita</em>, bukan hafalan.</h1>
+  <p>Tulis kode langsung di browser, dapat pemeriksaan otomatis, lalu naik level dari komponen kecil sampai layout dashboard. Materi Bab 1 sampai 8 mengacu pada modul Praktikum Mobile Computing System.</p>
+  <div class="ibtn"><button class="btn" id="start">Mulai belajar</button><a class="btn g" href="#peta">Lihat peta modul</a></div>
+  <div class="stat" id="st"></div>
+ </div>
+ <div class="cd"><div class="dots"><i></i><i></i><i></i></div><pre><code id="tw"></code><span class="caret"></span></pre></div>
+</div>
+<div class="peta" id="peta"><h2>Peta modul MCS</h2><p class="sub">Klik satu bab untuk langsung mulai dari sana.</p><div class="rm" id="rm"></div></div>
+<p class="src">Materi Bab 1 sampai 8 mengacu pada <a href="https://mcs.acsl.my.id/" target="_blank" rel="noopener">modul MCS Advanced Computer System Laboratory, Universitas Gunadarma</a>. Ini proyek belajar mandiri, bukan situs resmi ACSL.</p>
+</section>
+<div class="wrap" id="app" hidden>
 <header>
-<div><h1>Belajar Coding</h1><div class="note">Pilih sub-bab, naik level 1 sampai 10, kerjakan soal cerita dengan live coding.</div></div>
+<div><button class="btn g" id="home" type="button">← Beranda</button><h1>Belajar Coding</h1><div class="note">Pilih sub-bab, naik level 1 sampai 10, kerjakan soal cerita dengan live coding.</div></div>
 <div><div class="note" id="pt"></div><div class="bar"><i id="pb"></i></div></div>
 </header>
 <div class="layout"><nav id="nav" aria-label="Sub-bab"></nav><main id="main"></main></div>

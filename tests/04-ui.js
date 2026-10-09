@@ -12,12 +12,12 @@ function run(){
  const topics=$$("#nav button");out.push("jumlah tombol sub-bab: "+topics.length);
  for(let t=0;t<topics.length;t++){
   $$("#nav button")[t].click();
-  for(let L=1;L<=10;L++){
-   $$("[data-l]")[L-1].click();
+  for(const L of $$("[data-l]").map(b=>+b.dataset.l)){
+   $$("[data-l]").find(b=>+b.dataset.l===L).click();
    const nq=$$("[data-q]").length;
    for(let q=0;q<nq;q++){
     $$("[data-q]")[q].click();total++;
-    const sol=w.spec().sol,ed=$("#ed");
+    const sp=w.spec(),sol=sp.sol,ed=$("#ed")||{set value(v){const rs=$$("input[name=o]");rs.forEach(x=>x.checked=false);const i=/^\d+$/.test(v)?+v:sp.opts.indexOf(v);if(rs[i])rs[i].checked=true},dispatchEvent(){}};
     // jawaban salah dulu
     ed.value="// kosong";$("#go").click();
     if(/Benar/.test($("#msg").textContent))out.push("SALAH diterima di "+t+"/"+L+"/"+q);else salah++;
@@ -43,5 +43,5 @@ function run(){
  $$("#nav button")[0].click();$$("[data-q]")[0].click();
  const e2=$("#ed");e2.value='void main() {\n  print(this.constructor.constructor("return 1")());\n  print(window.location);\n}';$("#go").click();
  out.push("evaluator berbahaya diblokir: "+$("#out").textContent.slice(0,70));
- console.log(out.join("\n"));console.log("ERROR SKRIP: "+(errs.length?errs.join("\n"):"tidak ada"));
+ console.log(out.join("\n"));console.log("ERROR SKRIP: "+(errs.length?errs.join("\n"):"tidak ada"));process.exit(0);
 }
